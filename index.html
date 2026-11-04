@@ -1,0 +1,466 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#246b45">
+<title>AgroGuía | Consulta agronómica</title>
+
+<style>
+:root {
+  --green: #246b45;
+  --dark: #183d2b;
+  --light: #edf5ee;
+  --text: #304638;
+  --muted: #718075;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f9f6;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+header {
+  background: white;
+  padding: 17px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e7eee8;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: bold;
+  color: var(--green);
+}
+
+.logo span {
+  color: #8aaf91;
+}
+
+nav {
+  display: flex;
+  gap: 22px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.hero {
+  background: linear-gradient(135deg, #e9f4e9, #f8faf5);
+  padding: 65px 20px 55px;
+  text-align: center;
+}
+
+.tag {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+h1 {
+  color: var(--dark);
+  font-size: clamp(30px, 5vw, 45px);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.hero p {
+  max-width: 590px;
+  margin: auto;
+  color: var(--muted);
+}
+
+.container {
+  max-width: 1050px;
+  margin: auto;
+  padding: 35px 20px 60px;
+}
+
+.section-title {
+  font-size: 23px;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+.section-description {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 22px;
+}
+
+.search-box {
+  background: white;
+  padding: 25px;
+  border-radius: 17px;
+  box-shadow: 0 5px 20px #1c42200c;
+  margin-top: -12px;
+  margin-bottom: 45px;
+  border: 1px solid #e5ece5;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #dce7dd;
+  border-radius: 10px;
+  font-size: 15px;
+  outline-color: var(--green);
+  margin-top: 12px;
+}
+
+.search-box button {
+  margin-top: 12px;
+  background: var(--green);
+  color: white;
+  border: none;
+  padding: 13px 22px;
+  border-radius: 9px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#results {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.result-item {
+  background: var(--light);
+  padding: 14px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.result-item strong {
+  color: var(--green);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #e4ece4;
+  border-radius: 16px;
+  padding: 25px;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px #1c42200d;
+}
+
+.card-icon {
+  font-size: 37px;
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  color: var(--green);
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.card a {
+  display: inline-block;
+  color: var(--green);
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.quick {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 13px;
+  margin-top: 22px;
+}
+
+.quick a {
+  background: white;
+  border: 1px solid #e4ece4;
+  padding: 16px 10px;
+  border-radius: 12px;
+  text-align: center;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.quick span {
+  display: block;
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+.info {
+  background: var(--light);
+  border-radius: 16px;
+  padding: 25px;
+  margin-top: 35px;
+  text-align: center;
+}
+
+.info h3 {
+  color: var(--green);
+  margin-bottom: 8px;
+}
+
+.info p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+footer {
+  background: white;
+  border-top: 1px solid #e5ece5;
+  text-align: center;
+  padding: 23px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@media(max-width:650px) {
+  header {
+    padding: 15px 18px;
+  }
+
+  nav {
+    gap: 10px;
+  }
+
+  nav a {
+    font-size: 11px;
+  }
+
+  .hero {
+    padding: 48px 20px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .quick {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .search-box {
+    padding: 19px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Agro<span>Guía</span> 🌱</div>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#consultas">Consultas</a>
+    <a href="#herramientas">Herramientas</a>
+  </nav>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="tag">CONOCIMIENTO AGRONÓMICO A TU ALCANCE</div>
+  <h1>¡Bienvenido a AgroGuía!</h1>
+  <p>
+    Una herramienta práctica para reconocer problemas
+    nutricionales y fitosanitarios de tus cultivos.
+    Aprende, consulta y encuentra posibles soluciones.
+  </p>
+</section>
+
+<main class="container">
+
+  <section class="search-box">
+    <h2 class="section-title">¿Qué problema observas?</h2>
+    <p class="section-description">
+      Escribe un síntoma para explorar posibles causas.
+    </p>
+
+    <input
+      type="text"
+      id="symptom"
+      placeholder="Ej. hojas amarillas, agujeros, manchas..."
+    >
+
+    <button onclick="searchSymptom()">Buscar síntomas</button>
+
+    <div id="results"></div>
+  </section>
+
+  <section id="consultas">
+    <h2 class="section-title">Explora nuestros módulos</h2>
+    <p class="section-description">
+      Encuentra información agronómica organizada y fácil de consultar.
+    </p>
+
+    <div class="cards">
+
+      <article class="card">
+        <div class="card-icon">🌿</div>
+        <h3>Nutrición vegetal</h3>
+        <p>
+          Reconoce las deficiencias de nutrientes,
+          sus funciones y los síntomas que presentan las plantas.
+        </p>
+        <a href="#nutricion">Explorar nutrientes →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🐛</div>
+        <h3>Identificación de plagas</h3>
+        <p>
+          Conoce los insectos agrícolas, los cultivos
+          que afectan y sus alternativas de manejo integrado.
+        </p>
+        <a href="#plagas">Explorar plagas →</a>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="herramientas" style="margin-top:40px">
+    <h2 class="section-title">Herramientas de consulta</h2>
+    <p class="section-description">
+      Funciones para facilitar el reconocimiento de problemas.
+    </p>
+
+    <div class="quick">
+      <a href="#comparador">
+        <span>⚖️</span>
+        Comparador nutricional
+      </a>
+
+      <a href="#nutricion">
+        <span>🧪</span>
+        Nutrientes
+      </a>
+
+      <a href="#plagas">
+        <span>🔎</span>
+        Catálogo de plagas
+      </a>
+
+      <a href="#asistente">
+        <span>🤖</span>
+        Asistente IA
+      </a>
+    </div>
+  </section>
+
+  <section class="info" id="asistente">
+    <h3>🤖 Asistente AgroGuía</h3>
+    <p>
+      Estamos preparando un espacio de consulta inteligente
+      para resolver dudas sobre nutrición y sanidad vegetal.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  AgroGuía © 2026 · Conocimiento agronómico a tu alcance 🌱
+</footer>
+
+<script>
+const symptoms = [
+  {
+    words: ["amarillas", "amarillo", "amarilleo"],
+    title: "Amarillamiento de hojas",
+    causes: "Puede relacionarse con deficiencias de nitrógeno, azufre o hierro; también con problemas de raíces, agua o enfermedades."
+  },
+  {
+    words: ["manchas", "puntos", "lesiones"],
+    title: "Manchas en las hojas",
+    causes: "Pueden tener origen en enfermedades, daños por insectos, deficiencias nutricionales o factores ambientales."
+  },
+  {
+    words: ["agujeros", "perforadas", "comidas"],
+    title: "Hojas perforadas",
+    causes: "Puede indicar alimentación de insectos masticadores, como orugas, escarabajos o gusanos cortadores."
+  },
+  {
+    words: ["enrolladas", "arrugadas", "deformadas"],
+    title: "Hojas deformadas",
+    causes: "Puede relacionarse con insectos chupadores, virus, alteraciones nutricionales o estrés ambiental."
+  },
+  {
+    words: ["marchitas", "marchitez", "caidas"],
+    title: "Marchitez de la planta",
+    causes: "Puede deberse a falta o exceso de agua, daños en raíces, enfermedades vasculares o estrés ambiental."
+  }
+];
+
+function searchSymptom() {
+  const input = document.getElementById("symptom").value
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+
+  const results = document.getElementById("results");
+
+  if (!input.trim()) {
+    results.innerHTML = "Escribe primero el síntoma que observas.";
+    return;
+  }
+
+  const matches = symptoms.filter(item =>
+    item.words.some(word => input.includes(word))
+  );
+
+  if (matches.length === 0) {
+    results.innerHTML =
+      "Todavía no tenemos una ficha para esa búsqueda. Prueba con hojas amarillas, manchas, agujeros, hojas enrolladas o marchitez.";
+    return;
+  }
+
+  results.innerHTML = matches.map(item => `
+    <div class="result-item">
+      <strong>${item.title}</strong>
+      <p>${item.causes}</p>
+    </div>
+  `).join("") +
+  "<p style='margin-top:12px;color:#718075'>Estos son posibles orígenes, no un diagnóstico definitivo. Se necesita revisar el cultivo y sus condiciones.</p>";
+}
+
+document.getElementById("symptom").addEventListener("keydown", function(event) {
+  if (event.key === "Enter") searchSymptom();
+});
+</script>
+
+</body>
+</html>
