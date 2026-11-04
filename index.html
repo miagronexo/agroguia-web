@@ -198,6 +198,47 @@ h1 {
   font-size: 14px;
   text-decoration: none;
 }
+  /* CATÁLOGO DE NUTRICIÓN VEGETAL */
+
+.nutrient-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.nutrient-card {
+  background: white;
+  border: 1px solid #e4ece4;
+  border-radius: 16px;
+  padding: 22px;
+}
+
+.nutrient-card h3 {
+  color: var(--green);
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+
+.nutrient-card p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.nutrient-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  background: #f7f9f6;
+  border-radius: 10px;
+  margin-top: 12px;
+}
+
+@media (max-width: 650px) {
+  .nutrient-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 .quick {
   display: grid;
@@ -353,6 +394,111 @@ footer {
     </div>
   </section>
 
+ <section id="nutricion" style="margin-top:40px">
+  <h2 class="section-title">Catálogo de deficiencias nutricionales</h2>
+  <p class="section-description">
+    Identifica las funciones de los nutrientes y reconoce los síntomas
+    que pueden aparecer cuando son deficientes en las plantas.
+  </p>
+
+  <div class="nutrient-grid">
+
+    <article class="nutrient-card">
+      <h3>Nitrógeno (N)</h3>
+      <p><strong>Función:</strong> Favorece el crecimiento de hojas y tallos, y participa en la formación de proteínas y clorofila.</p>
+      <p><strong>Deficiencia:</strong> Amarillamiento de las hojas, crecimiento lento y plantas pequeñas.</p>
+      <p><strong>¿Dónde aparece primero?</strong> En las hojas inferiores, porque el nitrógeno puede trasladarse hacia las partes jóvenes.</p>
+      <p><strong>Factores que la favorecen:</strong> Suelos pobres en materia orgánica, lavado del nitrógeno por lluvias y poca fertilización.</p>
+      <img src="https://blog.cambiagro.com/wp-content/uploads/2021/06/defi-1-768x512.png" alt="Posible deficiencia de nitrógeno">
+    </article>
+
+    <article class="nutrient-card">
+      <h3>Fósforo (P)</h3>
+      <p><strong>Función:</strong> Participa en la transferencia de energía, favorece el desarrollo de raíces y contribuye a la floración y formación de semillas.</p>
+      <p><strong>Deficiencia:</strong> Crecimiento lento, hojas verde oscuro y, en algunos cultivos, tonalidades rojizas o moradas.</p>
+      <p><strong>¿Dónde aparece primero?</strong> Generalmente en hojas inferiores y más viejas.</p>
+      <p><strong>Factores que la favorecen:</strong> Suelos fríos, pH muy ácido o alcalino y fósforo poco disponible en el suelo.</p>
+      <img src="https://blog.cambiagro.com/wp-content/uploads/2021/06/defi-8-768x512.jpg" alt="Deficiencia de fósforo">
+    </article>
+
+    <article class="nutrient-card">
+      <h3>Potasio (K)</h3>
+      <p><strong>Función:</strong> Regula el movimiento del agua, ayuda a controlar la apertura de los estomas y mejora la calidad de los frutos.</p>
+      <p><strong>Deficiencia:</strong> Amarillamiento y quemaduras en los bordes y puntas de las hojas.</p>
+      <p><strong>¿Dónde aparece primero?</strong> En las hojas inferiores y más viejas.</p>
+      <p><strong>Factores que la favorecen:</strong> Suelos arenosos, lavado por lluvias y competencia con otros nutrientes.</p>
+      <img src="https://personalgardenshopper.es/wp-content/uploads/2016/10/carencia-de-nutrientes-potasio.png" alt="Deficiencia de potasio">
+    </article>
+
+    <article class="nutrient-card">
+      <h3>Calcio (Ca)</h3>
+      <p><strong>Función:</strong> Fortalece las paredes celulares y favorece el crecimiento de las raíces y las puntas de los tallos.</p>
+      <p><strong>Deficiencia:</strong> Hojas jóvenes deformadas, daños en los puntos de crecimiento y pudrición apical en algunos frutos.</p>
+      <p><strong>¿Dónde aparece primero?</strong> En hojas jóvenes y puntos de crecimiento.</p>
+      <p><strong>Factores que la favorecen:</strong> Suelos ácidos o pobres en calcio, salinidad y problemas de suministro de agua.</p>
+      <img src="https://multisite-assets.icl-growingsolutions.com/wp-content/uploads/sites/46/2024/06/14072725/Deficiencia-Ca-en-FRESA-225x300.png" alt="Deficiencia de calcio en fresa">
+    </article>
+
+    <article class="nutrient-card">
+      <h3>Magnesio (Mg)</h3>
+      <p><strong>Función:</strong> Forma parte de la molécula de clorofila y participa en la captación de energía para la planta.</p>
+      <p><strong>Deficiencia:</strong> Amarillamiento entre las nervaduras, mientras estas permanecen verdes.</p>
+      <p><strong>¿Dónde aparece primero?</strong> En las hojas inferiores y más viejas.</p>
+      <p><strong>Factores que la favorecen:</strong> Suelos ácidos, baja disponibilidad de magnesio y exceso de potasio o calcio.</p>
+      <img src="https://blog.cambiagro.com/wp-content/uploads/2021/06/defi-4-768x512.jpg" alt="Deficiencia de magnesio">
+    </article>
+
+    <article class="nutrient-card">
+      <h3>Azufre (S)</h3>
+      <p><strong>Función:</strong> Participa en la formación de proteínas y en el desarrollo de hojas y tallos.</p>
+      <p><strong>Deficiencia:</strong> Amarillamiento general de las hojas y crecimiento reducido.</p>
+      <p><strong>¿Dónde aparece primero?</strong> Generalmente en las hojas jóvenes, porque el azufre tiene poca capacidad de trasladarse dentro de la planta.</p>
+      <p><strong>Factores que la favorecen:</strong> Suelos arenosos, bajos en materia orgánica y lluvias que favorecen el lavado del sulfato.</p>
+      <img src="https://atami.com/wp-content/uploads/2024/07/SULPHUR-PLANT-DEFICIENCY-SYMPTOMS_-CAUSES_-AND-SOLUTIONS-1.webp" alt="Deficiencia de azufre">
+    </article>
+
+    <article class="nutrient-card">
+      <h3>Hierro (Fe)</h3>
+      <p><strong>Función:</strong> Participa en la formación de clorofila y en el funcionamiento de los procesos que permiten aprovechar la energía.</p>
+      <p><strong>Deficiencia:</strong> Amarillamiento entre las nervaduras, que pueden permanecer verdes.</p>
+      <p><strong>¿Dónde aparece primero?</strong> En las hojas jóvenes.</p>
+      <p><strong>Factores que la favorecen:</strong> Suelos alcalinos, pH elevado y exceso de humedad en las raíces.</p>
+      <img src="https://blog.cambiagro.com/wp-content/uploads/2021/06/defi-5-768x512.jpg" alt="Deficiencia de hierro">
+    </article>
+
+    <article class="nutrient-card">
+      <h3>Zinc (Zn)</h3>
+      <p><strong>Función:</strong> Interviene en el crecimiento de la planta y en la formación de sustancias que regulan el desarrollo de hojas y tallos.</p>
+      <p><strong>Deficiencia:</strong> Hojas pequeñas, entrenudos cortos y crecimiento reducido.</p>
+      <p><strong>¿Dónde aparece primero?</strong> En hojas jóvenes y zonas de crecimiento.</p>
+      <p><strong>Factores que la favorecen:</strong> Suelos alcalinos, exceso de fósforo y bajos niveles de zinc disponible.</p>
+      <img src="https://blog.cambiagro.com/wp-content/uploads/2021/06/defi-6-768x512.jpg" alt="Deficiencia de zinc">
+    </article>
+
+    <article class="nutrient-card">
+      <h3>Boro (B)</h3>
+      <p><strong>Función:</strong> Favorece el crecimiento de las puntas de raíces y tallos, la formación de flores y el desarrollo de frutos.</p>
+      <p><strong>Deficiencia:</strong> Muerte de puntos de crecimiento, hojas jóvenes deformadas y problemas en la floración y formación de frutos.</p>
+      <p><strong>¿Dónde aparece primero?</strong> En los puntos de crecimiento, hojas jóvenes y órganos reproductivos.</p>
+      <p><strong>Factores que la favorecen:</strong> Suelos arenosos, sequía, bajo contenido de materia orgánica y pH elevado.</p>
+      <img src="https://multisite-assets.icl-growingsolutions.com/wp-content/uploads/sites/46/2024/11/15170108/big-Deficiency-symptoms-of-Boron-in-Citrus-China2.webp" alt="Deficiencia de boro en cítricos">
+    </article>
+
+    <article class="nutrient-card">
+      <h3>Manganeso (Mn)</h3>
+      <p><strong>Función:</strong> Participa en la fotosíntesis y en el funcionamiento de procesos importantes para el crecimiento de la planta.</p>
+      <p><strong>Deficiencia:</strong> Amarillamiento entre las nervaduras y aparición de pequeñas manchas en las hojas.</p>
+      <p><strong>¿Dónde aparece primero?</strong> Generalmente en hojas jóvenes o de edad intermedia, según el cultivo.</p>
+      <p><strong>Factores que la favorecen:</strong> Suelos alcalinos, pH elevado y exceso de aireación en algunos suelos.</p>
+      <img src="https://personalgardenshopper.es/wp-content/uploads/2016/10/carencia-de-nutrientes-manganeso.png" alt="Deficiencia de manganeso">
+    </article>
+
+  </div>
+
+  <p style="margin-top:20px;color:var(--muted);font-size:13px">
+    Importante: los síntomas visuales son orientativos y pueden confundirse con daños por enfermedades, plagas o condiciones ambientales. Para confirmar una deficiencia, se recomienda realizar análisis de suelo o foliar y consultar con un profesional.
+  </p>
+</section>
   <section id="herramientas" style="margin-top:40px">
     <h2 class="section-title">Herramientas de consulta</h2>
     <p class="section-description">
