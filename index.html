@@ -863,6 +863,74 @@ function compararNutrientes() {
     </p>
   `;
 }
+  // BIBLIOTECA DE IDENTIFICACIÓN DE PLAGAS
+
+const plagas = [
+  {
+    comun: "Broca del café",
+    cientifico: "Hypothenemus hampei",
+    grupo: "Coleoptera",
+    familia: "Curculionidae",
+    imagen: "https://www.ica.gov.co/areas/agricola/direccion-tecnica-de-sanidad-vegetal/proteccion-fitosanitaria-en-cafe/galeria/imagen1.aspx",
+    caracteristicas: "Pequeño escarabajo de color oscuro. La hembra perfora el fruto del café y entra hasta el grano.",
+    cultivos: "Café.",
+    dano: "Perfora las cerezas, se reproduce dentro del grano y deteriora la almendra. Puede provocar caída prematura de los frutos.",
+    manejo: "Cultural: recolección oportuna y repase de frutos maduros, sobremaduros y secos. Biológico: uso de Beauveria bassiana y enemigos naturales. Químico: únicamente productos autorizados por el ICA y aplicados según su etiqueta.",
+    fuente: "https://www.ica.gov.co/areas/agricola/direccion-tecnica-de-sanidad-vegetal/proteccion-fitosanitaria-en-cafe/desplegable/broca-del-cafe-hypothenemus-hampei"
+  }
+];
+
+function normalizarTexto(texto) {
+  return texto.toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
+function mostrarPlagas() {
+  const busqueda = normalizarTexto(
+    document.getElementById("buscarPlaga").value
+  );
+
+  const grupo = document.getElementById("grupoPlaga").value;
+  const lista = document.getElementById("listaPlagas");
+
+  const filtradas = plagas.filter(plaga => {
+    const coincideTexto = normalizarTexto(
+      plaga.comun + " " + plaga.cientifico
+    ).includes(busqueda);
+
+    const coincideGrupo = !grupo || plaga.grupo === grupo;
+
+    return coincideTexto && coincideGrupo;
+  });
+
+  if (filtradas.length === 0) {
+    lista.innerHTML = "<p>No se encontraron plagas con esos criterios.</p>";
+    return;
+  }
+
+  lista.innerHTML = filtradas.map(plaga => `
+    <article class="pest-card">
+      <img src="${plaga.imagen}" alt="${plaga.comun}">
+      <h3>${plaga.comun}</h3>
+      <p><em>${plaga.cientifico}</em></p>
+      <p class="pest-group">${plaga.grupo} · ${plaga.familia}</p>
+      <p><strong>Identificación:</strong> ${plaga.caracteristicas}</p>
+      <p><strong>Cultivos afectados:</strong> ${plaga.cultivos}</p>
+      <p><strong>Daño:</strong> ${plaga.dano}</p>
+      <p><strong>Manejo integrado:</strong> ${plaga.manejo}</p>
+      <p><a href="${plaga.fuente}" target="_blank" rel="noopener">Consultar fuente técnica</a></p>
+    </article>
+  `).join("");
+}
+
+document.getElementById("buscarPlaga")
+  .addEventListener("input", mostrarPlagas);
+
+document.getElementById("grupoPlaga")
+  .addEventListener("change", mostrarPlagas);
+
+mostrarPlagas();
 </script>
 
 </body>
