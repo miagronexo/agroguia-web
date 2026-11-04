@@ -499,6 +499,51 @@ footer {
     Importante: los síntomas visuales son orientativos y pueden confundirse con daños por enfermedades, plagas o condiciones ambientales. Para confirmar una deficiencia, se recomienda realizar análisis de suelo o foliar y consultar con un profesional.
   </p>
 </section>
+  <section id="comparador" style="margin-top:40px">
+  <h2 class="section-title">⚖️ Comparador nutricional</h2>
+  <p class="section-description">
+    Selecciona dos nutrientes para conocer sus diferencias
+    y reconocer sus síntomas de deficiencia.
+  </p>
+
+  <div class="search-box">
+    <label>Primer nutriente</label>
+    <select id="nutriente1" style="width:100%;padding:13px;margin:8px 0 18px;border:1px solid #dce7dd;border-radius:9px">
+      <option value="">Seleccionar nutriente</option>
+      <option value="N">Nitrógeno (N)</option>
+      <option value="P">Fósforo (P)</option>
+      <option value="K">Potasio (K)</option>
+      <option value="Ca">Calcio (Ca)</option>
+      <option value="Mg">Magnesio (Mg)</option>
+      <option value="S">Azufre (S)</option>
+      <option value="Fe">Hierro (Fe)</option>
+      <option value="Zn">Zinc (Zn)</option>
+      <option value="B">Boro (B)</option>
+      <option value="Mn">Manganeso (Mn)</option>
+    </select>
+
+    <label>Segundo nutriente</label>
+    <select id="nutriente2" style="width:100%;padding:13px;margin:8px 0 18px;border:1px solid #dce7dd;border-radius:9px">
+      <option value="">Seleccionar nutriente</option>
+      <option value="N">Nitrógeno (N)</option>
+      <option value="P">Fósforo (P)</option>
+      <option value="K">Potasio (K)</option>
+      <option value="Ca">Calcio (Ca)</option>
+      <option value="Mg">Magnesio (Mg)</option>
+      <option value="S">Azufre (S)</option>
+      <option value="Fe">Hierro (Fe)</option>
+      <option value="Zn">Zinc (Zn)</option>
+      <option value="B">Boro (B)</option>
+      <option value="Mn">Manganeso (Mn)</option>
+    </select>
+
+    <button onclick="compararNutrientes()">
+      Comparar nutrientes
+    </button>
+
+    <div id="resultadoComparacion"></div>
+  </div>
+</section>
   <section id="herramientas" style="margin-top:40px">
     <h2 class="section-title">Herramientas de consulta</h2>
     <p class="section-description">
