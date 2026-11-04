@@ -542,8 +542,44 @@ footer {
     </button>
 
     <div id="resultadoComparacion"></div>
+  </div> 
+</section>
+  
+<section id="identificacion-plagas" style="margin-top:40px">
+  <h2 class="section-title">Identificación de plagas agrícolas</h2>
+
+  <p class="section-description">
+    Conoce las principales plagas agrícolas, los cultivos que afectan,
+    los daños que ocasionan y sus alternativas de manejo integrado.
+  </p>
+
+  <div class="pest-search">
+    <input
+      type="search"
+      id="buscarPlaga"
+      placeholder="Buscar por nombre común o científico..."
+    >
+
+    <select id="grupoPlaga">
+      <option value="">Todos los grupos</option>
+      <option value="Coleoptera">Coleoptera</option>
+      <option value="Hemiptera">Hemiptera</option>
+      <option value="Lepidoptera">Lepidoptera</option>
+      <option value="Diptera">Diptera</option>
+      <option value="Thysanoptera">Thysanoptera</option>
+      <option value="Orthoptera">Orthoptera</option>
+      <option value="Hymenoptera">Hymenoptera</option>
+      <option value="Blattodea">Blattodea</option>
+      <option value="Acari">Ácaros</option>
+      <option value="Nematoda">Nematodos</option>
+    </select>
+  </div>
+
+  <div id="listaPlagas" class="pest-grid">
+    <p>Próximamente encontrarás aquí las fichas de identificación.</p>
   </div>
 </section>
+
   <section id="herramientas" style="margin-top:40px">
     <h2 class="section-title">Herramientas de consulta</h2>
     <p class="section-description">
