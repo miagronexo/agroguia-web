@@ -922,18 +922,37 @@ function mostrarPlagas() {
   }
 
   lista.innerHTML = filtradas.map(plaga => `
-    <article class="pest-card">
-      <img src="${plaga.imagen}" alt="${plaga.comun}">
-      <h3>${plaga.comun}</h3>
-      <p><em>${plaga.cientifico}</em></p>
-      <p class="pest-group">${plaga.grupo} · ${plaga.familia}</p>
-      <p><strong>Identificación:</strong> ${plaga.caracteristicas}</p>
-      <p><strong>Cultivos afectados:</strong> ${plaga.cultivos}</p>
-      <p><strong>Daño:</strong> ${plaga.dano}</p>
-      <p><strong>Manejo integrado:</strong> ${plaga.manejo}</p>
-      <p><a href="${plaga.fuente}" target="_blank" rel="noopener">Consultar fuente técnica</a></p>
-    </article>
-  `).join("");
+  <article class="pest-card">
+    <img src="${plaga.imagen}" alt="${plaga.comun}">
+
+    <h3>${plaga.comun}</h3>
+
+    <p><strong>1. IDENTIFICACIÓN</strong></p>
+    <p><strong>Nombre común:</strong> ${plaga.comun}</p>
+    <p><strong>Nombre científico:</strong> <em>${plaga.cientifico}</em></p>
+
+    <p><strong>2. CLASIFICACIÓN</strong></p>
+    <p><strong>Grupo:</strong> ${plaga.grupo}</p>
+    <p><strong>Familia:</strong> ${plaga.familia}</p>
+
+    <p><strong>3. CARACTERÍSTICAS</strong></p>
+    <p>${plaga.caracteristicas}</p>
+
+    <p><strong>4. CULTIVOS AFECTADOS</strong></p>
+    <p>${plaga.cultivos}</p>
+
+    <p><strong>5. DAÑO QUE OCASIONA</strong></p>
+    <p>${plaga.dano}</p>
+
+    <p><strong>6. MANEJO INTEGRADO</strong></p>
+    <p><strong>Cultural:</strong> ${plaga.cultural}</p>
+    <p><strong>Biológico:</strong> ${plaga.biologico}</p>
+    <p><strong>Etológico:</strong> ${plaga.etologico}</p>
+    <p><strong>Químico:</strong> ${plaga.quimico}</p>
+
+    <p><a href="${plaga.fuente}" target="_blank" rel="noopener">Consultar fuente técnica</a></p>
+  </article>
+`).join("");
 }
 
 document.getElementById("buscarPlaga")
