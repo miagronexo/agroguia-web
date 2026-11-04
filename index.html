@@ -651,6 +651,122 @@ function searchSymptom() {
 document.getElementById("symptom").addEventListener("keydown", function(event) {
   if (event.key === "Enter") searchSymptom();
 });
+  const datosComparacion = {
+  N: {
+    nombre: "Nitrógeno",
+    sintomas: "Amarillamiento general de las hojas y crecimiento lento.",
+    primero: "Hojas inferiores y más viejas.",
+    diferencia: "El amarillamiento suele comenzar en las hojas viejas y extenderse por la planta.",
+    imagen: "https://blog.cambiagro.com/wp-content/uploads/2021/06/defi-1-768x512.png"
+  },
+  P: {
+    nombre: "Fósforo",
+    sintomas: "Hojas verde oscuro, posibles tonalidades rojizas o moradas y crecimiento reducido.",
+    primero: "Hojas inferiores y más viejas.",
+    diferencia: "Puede producir tonalidades moradas o rojizas, algo que no es característico de la deficiencia de nitrógeno.",
+    imagen: "https://blog.cambiagro.com/wp-content/uploads/2021/06/defi-8-768x512.jpg"
+  },
+  K: {
+    nombre: "Potasio",
+    sintomas: "Amarillamiento y quemaduras en los bordes y puntas de las hojas.",
+    primero: "Hojas inferiores y más viejas.",
+    diferencia: "El daño en los bordes de las hojas es una de sus señales más características.",
+    imagen: "https://personalgardenshopper.es/wp-content/uploads/2016/10/carencia-de-nutrientes-potasio.png"
+  },
+  Ca: {
+    nombre: "Calcio",
+    sintomas: "Hojas jóvenes deformadas y daños en los puntos de crecimiento.",
+    primero: "Hojas jóvenes y puntos de crecimiento.",
+    diferencia: "Afecta especialmente las partes que están creciendo y puede causar pudrición apical en frutos.",
+    imagen: "https://multisite-assets.icl-growingsolutions.com/wp-content/uploads/sites/46/2024/06/14072725/Deficiencia-Ca-en-FRESA-225x300.png"
+  },
+  Mg: {
+    nombre: "Magnesio",
+    sintomas: "Amarillamiento entre las nervaduras, que permanecen verdes.",
+    primero: "Hojas inferiores y más viejas.",
+    diferencia: "El amarillamiento entre las nervaduras aparece principalmente en hojas viejas.",
+    imagen: "https://blog.cambiagro.com/wp-content/uploads/2021/06/defi-4-768x512.jpg"
+  },
+  S: {
+    nombre: "Azufre",
+    sintomas: "Amarillamiento general de las hojas y crecimiento reducido.",
+    primero: "Hojas jóvenes.",
+    diferencia: "Se parece a la deficiencia de nitrógeno, pero suele comenzar en las hojas jóvenes.",
+    imagen: "https://atami.com/wp-content/uploads/2024/07/SULPHUR-PLANT-DEFICIENCY-SYMPTOMS_-CAUSES_-AND-SOLUTIONS-1.webp"
+  },
+  Fe: {
+    nombre: "Hierro",
+    sintomas: "Amarillamiento entre las nervaduras, que pueden permanecer verdes.",
+    primero: "Hojas jóvenes.",
+    diferencia: "Se parece a la deficiencia de magnesio, pero aparece primero en hojas jóvenes.",
+    imagen: "https://blog.cambiagro.com/wp-content/uploads/2021/06/defi-5-768x512.jpg"
+  },
+  Zn: {
+    nombre: "Zinc",
+    sintomas: "Hojas pequeñas, entrenudos cortos y crecimiento reducido.",
+    primero: "Hojas jóvenes y zonas de crecimiento.",
+    diferencia: "El tamaño reducido de las hojas y los entrenudos cortos son señales importantes.",
+    imagen: "https://blog.cambiagro.com/wp-content/uploads/2021/06/defi-6-768x512.jpg"
+  },
+  B: {
+    nombre: "Boro",
+    sintomas: "Hojas jóvenes deformadas, muerte de puntos de crecimiento y problemas de floración.",
+    primero: "Puntos de crecimiento, hojas jóvenes y órganos reproductivos.",
+    diferencia: "Puede afectar la formación de flores, frutos y el crecimiento de las puntas de la planta.",
+    imagen: "https://multisite-assets.icl-growingsolutions.com/wp-content/uploads/sites/46/2024/11/15170108/big-Deficiency-symptoms-of-Boron-in-Citrus-China2.webp"
+  },
+  Mn: {
+    nombre: "Manganeso",
+    sintomas: "Amarillamiento entre las nervaduras y pequeñas manchas en las hojas.",
+    primero: "Hojas jóvenes o de edad intermedia.",
+    diferencia: "Puede presentar pequeñas manchas o zonas necróticas junto al amarillamiento entre las nervaduras.",
+    imagen: "https://personalgardenshopper.es/wp-content/uploads/2016/10/carencia-de-nutrientes-manganeso.png"
+  }
+};
+
+function compararNutrientes() {
+  const primero = document.getElementById("nutriente1").value;
+  const segundo = document.getElementById("nutriente2").value;
+  const resultado = document.getElementById("resultadoComparacion");
+
+  if (!primero || !segundo) {
+    resultado.innerHTML = "<p style='margin-top:15px'>Selecciona los dos nutrientes para compararlos.</p>";
+    return;
+  }
+
+  if (primero === segundo) {
+    resultado.innerHTML = "<p style='margin-top:15px'>Selecciona dos nutrientes diferentes.</p>";
+    return;
+  }
+
+  const a = datosComparacion[primero];
+  const b = datosComparacion[segundo];
+
+  resultado.innerHTML = `
+    <h3 style="color:var(--green);margin:25px 0 15px">
+      Resultado de la comparación
+    </h3>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px">
+
+      ${[a,b].map(n => `
+        <div style="border:1px solid #e4ece4;border-radius:12px;padding:15px;background:#f7f9f6">
+          <h3 style="color:var(--green);margin-bottom:12px">${n.nombre}</h3>
+          <img src="${n.imagen}" alt="Referencia de deficiencia de ${n.nombre}"
+            style="width:100%;height:180px;object-fit:contain;background:white;border-radius:8px">
+          <p style="margin-top:12px"><strong>Síntomas:</strong> ${n.sintomas}</p>
+          <p><strong>Aparece primero en:</strong> ${n.primero}</p>
+          <p><strong>Característica:</strong> ${n.diferencia}</p>
+        </div>
+      `).join("")}
+
+    </div>
+
+    <p style="margin-top:15px;color:var(--muted);font-size:13px">
+      Esta comparación es orientativa. Los síntomas pueden variar según el cultivo y las condiciones del suelo. Se recomienda confirmar mediante análisis nutricional.
+    </p>
+  `;
+}
 </script>
 
 </body>
