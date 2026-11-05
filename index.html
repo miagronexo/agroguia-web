@@ -559,50 +559,56 @@ footer {
     Importante: los síntomas visuales son orientativos y pueden confundirse con daños por enfermedades, plagas o condiciones ambientales. Para confirmar una deficiencia, se recomienda realizar análisis de suelo o foliar y consultar con un profesional.
   </p>
 </section>
-  <section id="comparador" style="margin-top:40px">
-  <h2 class="section-title">⚖️ Comparador nutricional</h2>
+<section id="comparador" style="margin-top:40px">
+  <h2 class="section-title">🔎 Buscador de síntomas</h2>
   <p class="section-description">
-    Selecciona dos nutrientes para conocer sus diferencias
-    y reconocer sus síntomas de deficiencia.
+    Selecciona los síntomas que observas en tu cultivo
+    para encontrar posibles deficiencias nutricionales.
   </p>
 
   <div class="search-box">
-    <label>Primer nutriente</label>
-    <select id="nutriente1" style="width:100%;padding:13px;margin:8px 0 18px;border:1px solid #dce7dd;border-radius:9px">
-      <option value="">Seleccionar nutriente</option>
-      <option value="N">Nitrógeno (N)</option>
-      <option value="P">Fósforo (P)</option>
-      <option value="K">Potasio (K)</option>
-      <option value="Ca">Calcio (Ca)</option>
-      <option value="Mg">Magnesio (Mg)</option>
-      <option value="S">Azufre (S)</option>
-      <option value="Fe">Hierro (Fe)</option>
-      <option value="Zn">Zinc (Zn)</option>
-      <option value="B">Boro (B)</option>
-      <option value="Mn">Manganeso (Mn)</option>
+
+    <label><strong>¿Qué síntomas presenta la planta?</strong></label>
+    <p style="font-size:13px;color:#68756b">
+      Puedes seleccionar varias opciones.
+    </p>
+
+    <div style="display:grid;gap:12px;margin:15px 0">
+
+      <label><input type="checkbox" name="sintomas" value="amarillamiento"> Amarillamiento de hojas</label>
+
+      <label><input type="checkbox" name="sintomas" value="clorosis_nervaduras"> Amarillamiento entre nervaduras</label>
+
+      <label><input type="checkbox" name="sintomas" value="bordes_quemados"> Bordes de las hojas quemados</label>
+
+      <label><input type="checkbox" name="sintomas" value="manchas"> Manchas en las hojas</label>
+
+      <label><input type="checkbox" name="sintomas" value="coloracion_morada"> Coloración morada o rojiza</label>
+
+      <label><input type="checkbox" name="sintomas" value="deformacion"> Hojas pequeñas o deformadas</label>
+
+      <label><input type="checkbox" name="sintomas" value="secamiento"> Secamiento de hojas</label>
+
+      <label><input type="checkbox" name="sintomas" value="crecimiento_lento"> Crecimiento lento</label>
+
+    </div>
+
+    <label><strong>¿En qué hojas aparecen los síntomas?</strong></label>
+
+    <select id="edadHojas" style="width:100%;padding:13px;margin:10px 0 18px;border:1px solid #dce7dd;border-radius:9px">
+      <option value="">Seleccionar</option>
+      <option value="viejas">Hojas viejas</option>
+      <option value="jovenes">Hojas jóvenes</option>
+      <option value="toda">En toda la planta</option>
     </select>
 
-    <label>Segundo nutriente</label>
-    <select id="nutriente2" style="width:100%;padding:13px;margin:8px 0 18px;border:1px solid #dce7dd;border-radius:9px">
-      <option value="">Seleccionar nutriente</option>
-      <option value="N">Nitrógeno (N)</option>
-      <option value="P">Fósforo (P)</option>
-      <option value="K">Potasio (K)</option>
-      <option value="Ca">Calcio (Ca)</option>
-      <option value="Mg">Magnesio (Mg)</option>
-      <option value="S">Azufre (S)</option>
-      <option value="Fe">Hierro (Fe)</option>
-      <option value="Zn">Zinc (Zn)</option>
-      <option value="B">Boro (B)</option>
-      <option value="Mn">Manganeso (Mn)</option>
-    </select>
-
-    <button onclick="compararNutrientes()">
-      Comparar nutrientes
+    <button onclick="buscarSintomas()">
+      Buscar posibles deficiencias
     </button>
 
-    <div id="resultadoComparacion"></div>
-  </div> 
+    <div id="resultadoSintomas" style="margin-top:20px"></div>
+
+  </div>
 </section>
   
 <section id="identificacion-plagas" style="margin-top:40px">
