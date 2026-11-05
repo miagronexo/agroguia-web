@@ -380,6 +380,109 @@ footer {
     padding: 19px;
   }
 }
+  /* MEJORAS VISUALES DE AGROGUÍA */
+
+/* Bienvenida */
+.hero {
+  padding: 75px 20px 65px;
+}
+
+.hero p {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Buscador de síntomas */
+.search-box {
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(28, 66, 32, 0.07);
+}
+
+/* Títulos de las secciones */
+.section-title {
+  font-size: 25px;
+  letter-spacing: -0.4px;
+}
+
+.section-description {
+  line-height: 1.7;
+}
+
+/* Tarjetas de los módulos */
+.cards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+  border-radius: 18px;
+  padding: 27px;
+}
+
+.card p {
+  flex-grow: 1;
+  line-height: 1.7;
+}
+
+.card:hover {
+  border-color: #b8d1bb;
+}
+
+/* Accesos rápidos */
+.quick {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.quick a {
+  border-radius: 14px;
+  transition: transform .2s, border-color .2s;
+}
+
+.quick a:hover {
+  transform: translateY(-3px);
+  border-color: #b8d1bb;
+}
+
+/* Adaptación a celulares */
+@media (max-width: 650px) {
+  header {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  nav {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  nav a {
+    font-size: 13px;
+  }
+
+  .hero {
+    padding: 50px 20px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .quick {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card {
+    min-height: auto;
+  }
+}
 </style>
 </head>
 
