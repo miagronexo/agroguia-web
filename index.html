@@ -1509,6 +1509,130 @@ document.getElementById("grupoPlaga")
   .addEventListener("change", mostrarPlagas);
 
 mostrarPlagas();
+  function buscarSintomas() {
+  const seleccionados = Array.from(
+    document.querySelectorAll('input[name="sintomas"]:checked')
+  ).map(input => input.value);
+
+  const edad = document.getElementById("edadHojas").value;
+  const resultado = document.getElementById("resultadoSintomas");
+
+  if (seleccionados.length === 0) {
+    resultado.innerHTML = "<p>Selecciona al menos un síntoma para realizar la búsqueda.</p>";
+    return;
+  }
+
+  const deficiencias = [
+    {
+      nombre: "Nitrógeno (N)",
+      id: "ficha-n",
+      sintomas: ["amarillamiento", "crecimiento_lento"],
+      edad: "viejas",
+      descripcion: "Puede causar amarillamiento de las hojas inferiores y crecimiento reducido."
+    },
+    {
+      nombre: "Fósforo (P)",
+      id: "ficha-p",
+      sintomas: ["coloracion_morada", "crecimiento_lento"],
+      edad: "viejas",
+      descripcion: "Puede producir tonalidades moradas o rojizas y crecimiento lento."
+    },
+    {
+      nombre: "Potasio (K)",
+      id: "ficha-k",
+      sintomas: ["bordes_quemados", "secamiento"],
+      edad: "viejas",
+      descripcion: "Puede provocar quemaduras en los bordes y puntas de las hojas."
+    },
+    {
+      nombre: "Calcio (Ca)",
+      id: "ficha-ca",
+      sintomas: ["deformacion", "secamiento"],
+      edad: "jovenes",
+      descripcion: "Puede ocasionar deformación de hojas jóvenes y daños en los puntos de crecimiento."
+    },
+    {
+      nombre: "Magnesio (Mg)",
+      id: "ficha-mg",
+      sintomas: ["amarillamiento", "clorosis_nervaduras"],
+      edad: "viejas",
+      descripcion: "Puede causar amarillamiento entre las nervaduras de hojas viejas."
+    },
+    {
+      nombre: "Azufre (S)",
+      id: "ficha-s",
+      sintomas: ["amarillamiento", "crecimiento_lento"],
+      edad: "jovenes",
+      descripcion: "Puede producir amarillamiento general, especialmente en hojas jóvenes."
+    },
+    {
+      nombre: "Hierro (Fe)",
+      id: "ficha-fe",
+      sintomas: ["amarillamiento", "clorosis_nervaduras"],
+      edad: "jovenes",
+      descripcion: "Puede causar amarillamiento entre las nervaduras de las hojas jóvenes."
+    },
+    {
+      nombre: "Zinc (Zn)",
+      id: "ficha-zn",
+      sintomas: ["deformacion", "crecimiento_lento"],
+      edad: "jovenes",
+      descripcion: "Puede provocar hojas pequeñas, entrenudos cortos y crecimiento reducido."
+    },
+    {
+      nombre: "Boro (B)",
+      id: "ficha-b",
+      sintomas: ["deformacion", "secamiento"],
+      edad: "jovenes",
+      descripcion: "Puede causar deformaciones y muerte de los puntos de crecimiento."
+    },
+    {
+      nombre: "Manganeso (Mn)",
+      id: "ficha-mn",
+      sintomas: ["clorosis_nervaduras", "manchas"],
+      edad: "jovenes",
+      descripcion: "Puede producir clorosis entre nervaduras y pequeñas manchas en las hojas."
+    }
+  ];
+
+  const coincidencias = deficiencias.map(deficiencia => {
+    let puntos = 0;
+
+    seleccionados.forEach(sintoma => {
+      if (deficiencia.sintomas.includes(sintoma)) {
+        puntos++;
+      }
+    });
+
+    if (edad && edad !== "toda" && edad === deficiencia.edad) {
+      puntos++;
+    }
+
+    return { ...deficiencia, puntos };
+  })
+  .filter(item => item.puntos > 0)
+  .sort((a, b) => b.puntos - a.puntos);
+
+  if (coincidencias.length === 0) {
+    resultado.innerHTML = "<p>No se encontraron coincidencias. Los síntomas también pueden relacionarse con plagas, enfermedades o factores ambientales.</p>";
+    return;
+  }
+
+  resultado.innerHTML = `
+    <h3>Posibles deficiencias encontradas</h3>
+    <p>Estas son coincidencias orientativas según los síntomas seleccionados:</p>
+    ${coincidencias.map(item => `
+      <div style="padding:14px;margin:12px 0;border:1px solid #dce7dd;border-radius:10px">
+        <h4>${item.nombre}</h4>
+        <p>${item.descripcion}</p>
+        <a href="#${item.id}">Ver ficha →</a>
+      </div>
+    `).join("")}
+    <p style="font-size:13px;color:var(--muted)">
+      Importante: estas coincidencias no confirman una deficiencia. Se recomienda realizar análisis de suelo o foliar y revisar otras posibles causas.
+    </p>
+  `;
+}
 </script>
 
 </body>
